@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products | MUMAA Systems - Next-Gen Educational Hardware</title>
+    <meta name="description" content="Explore the MUMAA Systems product suite, including the Smart Companion AI device and the Parental Governance App.">
+    <meta name="keywords" content="MUMAA Products, AI hardware for kids, Raspberry Pi EdTech, Parent Control App, Educational AI device">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="logo.png">
+    <meta name="theme-color" content="#1e293b">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'inter': ['Inter', 'sans-serif'],
+                        'lexend': ['Lexend', 'sans-serif']
+                    },
+                    colors: {
+                        mumaa: {
+                            blue: '#7ba2b8',
+                            teal: '#9db5a1',
+                            sand: '#e3d1be',
+                            slate: '#1e293b'
+                        }
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        .gradient-text {
+            background: linear-gradient(135deg, #7ba2b8, #9db5a1, #1e293b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .glass {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .nav-link {
+            position: relative;
+            transition: color 0.3s ease;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: #7ba2b8;
+            transition: width 0.3s ease;
+        }
+        .nav-link.active::after {
+            width: 100%;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        #logoLoader {
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+        }
+        
+        .hero-pattern {
+            background-image: radial-gradient(circle at 1px 1px, rgba(123, 162, 184, 0.15) 1px, transparent 0);
+            background-size: 50px 50px;
+        }
+    </style>
+</head>
+<body class="font-inter text-slate-900 overflow-x-hidden relative bg-white">
+
+    <!-- Resilient Logo Loader -->
+    <div class="fixed inset-0 bg-slate-900 flex items-center justify-center z-[100]" id="logoLoader">
+        <div class="text-center">
+            <div class="relative mb-6">
+                <img src="logo.png" alt="MUMAA" class="w-16 h-16 mx-auto animate-pulse" onerror="this.src='https://via.placeholder.com/80/7ba2b8/ffffff?text=M'">
+                <div class="absolute inset-0 rounded-full border-2 border-blue-400/20 border-t-mumaa-blue animate-spin"></div>
+            </div>
+            <p class="text-slate-400 text-[10px] font-bold tracking-[0.4em] uppercase">Hardware Interface Initializing</p>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="fixed top-0 left-0 right-0 z-[60] bg-white/80 backdrop-blur-xl border-b border-slate-100">
+        <div class="container mx-auto px-8 py-5">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-6">
+                    <a href="index.html" class="flex items-center space-x-4">
+                        <img src="logo.png" alt="MUMAA Logo" class="h-10 w-auto" onerror="this.src='https://via.placeholder.com/40/7ba2b8/ffffff?text=M'">
+                        <div class="h-6 w-[1px] bg-slate-200"></div>
+                        <div class="flex flex-col">
+                            <span class="text-xl font-bold tracking-tighter text-slate-900 font-lexend uppercase">MUMAA</span>
+                            <span class="text-[8px] font-bold tracking-[0.4em] text-slate-400 uppercase">Intelligent Systems</span>
+                        </div>
+                    </a>
+                </div>
+                
+                <nav class="hidden lg:flex items-center space-x-10">
+                    <a href="index.html" class="nav-link text-slate-400 hover:text-slate-900 text-[10px] font-bold uppercase tracking-widest">Home</a>
+                    <a href="about.html" class="nav-link text-slate-400 hover:text-slate-900 text-[10px] font-bold uppercase tracking-widest">About</a>
+                    <a href="solutions.html" class="nav-link text-slate-400 hover:text-slate-900 text-[10px] font-bold uppercase tracking-widest">Solutions</a>
+                    <a href="products.html" class="nav-link active text-slate-900 text-[10px] font-bold uppercase tracking-widest">Products</a>
+                    <a href="contact.html" class="nav-link text-slate-400 hover:text-slate-900 text-[10px] font-bold uppercase tracking-widest">Contact</a>
+                    <button class="bg-slate-900 text-white px-8 py-3 rounded-sm font-bold text-[10px] tracking-[0.2em] uppercase hover:bg-mumaa-blue transition-all">Order Inquiries</button>
+                </nav>
+
+                <button class="lg:hidden text-slate-900 text-2xl" id="mobileMenuToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="fixed inset-y-0 right-0 w-full bg-white z-[70] transform translate-x-full transition-transform duration-500 lg:hidden flex flex-col p-10">
+        <button class="self-end text-slate-900 text-2xl mb-12" id="mobileMenuClose">
+            <i class="fas fa-times"></i>
+        </button>
+        <nav class="flex flex-col space-y-10 text-center">
+            <a href="index.html" class="text-slate-400 font-black uppercase tracking-widest text-lg">Home</a>
+            <a href="about.html" class="text-slate-400 font-black uppercase tracking-widest text-lg">About Us</a>
+            <a href="solutions.html" class="text-slate-400 font-black uppercase tracking-widest text-lg">Our Solutions</a>
+            <a href="products.html" class="text-slate-900 font-black uppercase tracking-widest text-lg">Our Products</a>
+            <a href="contact.html" class="text-slate-400 font-black uppercase tracking-widest text-lg">Contact</a>
+        </nav>
+    </div>
+
+    <main class="relative z-10">
+        <!-- Hero Section -->
+        <section class="min-h-[70vh] flex items-center pt-32 pb-20 hero-pattern">
+            <div class="container mx-auto px-8 text-center">
+                <div data-aos="fade-up">
+                    <div class="inline-flex items-center px-4 py-1.5 rounded-sm bg-mumaa-blue/10 border border-mumaa-blue/20 mb-10">
+                        <span class="text-mumaa-blue text-[10px] font-bold tracking-[0.4em] uppercase">Hardware & Software Suite</span>
+                    </div>
+                    <h1 class="text-6xl lg:text-8xl font-black text-slate-900 leading-none mb-10 font-lexend">
+                        The MUMAA <br><span class="gradient-text">Ecosystem</span>.
+                    </h1>
+                    <p class="text-2xl text-slate-500 leading-relaxed max-w-3xl mx-auto font-light">
+                        A seamless integration of child-safe hardware and parent-first software, designed to provide a secure sanctuary for early learning.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Main Product Sections -->
+        <section class="py-32 bg-slate-50" id="hardware">
+            <div class="container mx-auto px-8">
+                <!-- Hardware: Smart Companion -->
+                <div class="grid lg:grid-cols-2 gap-24 items-center mb-40">
+                    <div data-aos="fade-right">
+                        <span class="text-mumaa-blue font-bold uppercase tracking-[0.5em] text-[10px] mb-6 block">Product 01</span>
+                        <h2 class="text-5xl font-black text-slate-900 mb-10 font-lexend leading-tight">MUMAA Smart Companion v1.0</h2>
+                        <p class="text-lg text-slate-500 leading-relaxed mb-10 font-light">
+                            The physical gateway to conversational learning. Our hardware is engineered for low-latency processing and neural safety, utilizing local edge-AI to ensure no data leaves the nursery environment without authorization.
+                        </p>
+                        <div class="space-y-6 mb-12">
+                            <div class="flex items-center gap-6 group">
+                                <div class="w-12 h-12 bg-white rounded-lg shadow-sm border border-slate-200 flex items-center justify-center text-slate-900 group-hover:bg-mumaa-blue group-hover:text-white transition-all">
+                                    <i class="fas fa-microchip"></i>
+                                </div>
+                                <p class="text-xs font-bold uppercase tracking-widest text-slate-600">Raspberry Pi 4 Architecture</p>
+                            </div>
+                            <div class="flex items-center gap-6 group">
+                                <div class="w-12 h-12 bg-white rounded-lg shadow-sm border border-slate-200 flex items-center justify-center text-slate-900 group-hover:bg-mumaa-blue group-hover:text-white transition-all">
+                                    <i class="fas fa-volume-high"></i>
+                                </div>
+                                <p class="text-xs font-bold uppercase tracking-widest text-slate-600">High-Fidelity Audio Synthesis</p>
+                            </div>
+                        </div>
+                        <button onclick="showDetails('hardware')" class="px-12 py-5 bg-slate-900 text-white font-black text-xs tracking-widest uppercase hover:bg-mumaa-blue transition-all">Technical Specs</button>
+                    </div>
+                    <div class="relative" data-aos="zoom-in">
+                        <div class="bg-white p-20 rounded-[4rem] shadow-3xl border border-slate-100 flex items-center justify-center overflow-hidden">
+                            <div class="absolute inset-0 bg-mumaa-blue/5"></div>
+                            <svg viewBox="0 0 300 300" class="w-full h-auto animate-float">
+                                <rect x="50" y="20" width="200" height="260" rx="50" fill="white" stroke="#e2e8f0" stroke-width="2"/>
+                                <circle cx="150" cy="120" r="60" fill="#f8fafc" stroke="#7ba2b8" stroke-width="1" stroke-dasharray="8 4"/>
+                                <rect x="100" y="220" width="100" height="15" rx="7" fill="#e2e8f0"/>
+                                <circle cx="120" cy="227.5" r="3" fill="#9db5a1" />
+                                <circle cx="150" cy="227.5" r="3" fill="#7ba2b8" />
+                                <circle cx="180" cy="227.5" r="3" fill="#e3d1be" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Software: Parent Portal -->
+                <div class="grid lg:grid-cols-2 gap-24 items-center">
+                    <div class="order-2 lg:order-1" data-aos="fade-left">
+                        <div class="bg-white p-12 rounded-[3rem] shadow-3xl border border-slate-100 grid grid-cols-2 gap-8 relative overflow-hidden">
+                            <div class="absolute -top-10 -left-10 w-40 h-40 bg-mumaa-teal/10 rounded-full blur-3xl"></div>
+                            <div class="p-6 bg-slate-50 rounded-2xl">
+                                <p class="text-[9px] font-black uppercase text-slate-400 mb-4">Syllabus Lock</p>
+                                <div class="w-full h-2 bg-slate-200 rounded-full overflow-hidden">
+                                    <div class="w-[100%] h-full bg-mumaa-teal"></div>
+                                </div>
+                                <p class="text-[10px] mt-2 font-bold text-slate-600">CBSE Engaged</p>
+                            </div>
+                            <div class="p-6 bg-slate-50 rounded-2xl">
+                                <p class="text-[9px] font-black uppercase text-slate-400 mb-4">Timer</p>
+                                <p class="text-xl font-black text-slate-900">45:00</p>
+                                <p class="text-[10px] mt-1 font-bold text-slate-500 italic">Remaining</p>
+                            </div>
+                            <div class="col-span-2 p-6 bg-slate-900 rounded-2xl text-white">
+                                <p class="text-[9px] font-black uppercase text-blue-400 mb-4 tracking-widest">Active Inquiry Log</p>
+                                <p class="text-xs font-light italic">"Why do leaves fall in autumn?"</p>
+                                <p class="text-[8px] mt-3 font-bold uppercase text-green-400">Verified by RAG Engine</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="order-1 lg:order-2" data-aos="fade-right">
+                        <span class="text-mumaa-blue font-bold uppercase tracking-[0.5em] text-[10px] mb-6 block">Product 02</span>
+                        <h2 class="text-5xl font-black text-slate-900 mb-10 font-lexend leading-tight">Parental Governance Portal</h2>
+                        <p class="text-lg text-slate-500 leading-relaxed mb-10 font-light">
+                            The commanding software layer of the MUMAA ecosystem. Our app provides parents with granular oversight—from real-time conversation logs to curriculum boundary setting.
+                        </p>
+                        <div class="grid grid-cols-2 gap-6 mb-12">
+                            <div class="flex items-center gap-4">
+                                <i class="fas fa-chart-pie text-mumaa-blue"></i>
+                                <span class="text-[10px] font-bold uppercase tracking-widest">Curiosity Analytics</span>
+                            </div>
+                            <div class="flex items-center gap-4">
+                                <i class="fas fa-bell text-mumaa-teal"></i>
+                                <span class="text-[10px] font-bold uppercase tracking-widest">Safety Alerts</span>
+                            </div>
+                        </div>
+                        <button onclick="showDetails('software')" class="px-12 py-5 bg-slate-900 text-white font-black text-xs tracking-widest uppercase hover:bg-mumaa-blue transition-all">Interface Overview</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Product Features Grid -->
+        <section class="py-32 bg-white">
+            <div class="container mx-auto px-8">
+                <div class="text-center mb-24" data-aos="fade-up">
+                    <span class="text-mumaa-blue font-bold uppercase tracking-[0.5em] text-[10px] mb-6 block">Institutional Standard</span>
+                    <h2 class="text-5xl font-black text-slate-900 font-lexend">Built for Enterprise Reliability.</h2>
+                </div>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div class="p-8 bg-slate-50 border border-slate-100 rounded-lg text-center" data-aos="fade-up">
+                        <i class="fas fa-shield-cat text-3xl text-mumaa-blue mb-8"></i>
+                        <h5 class="font-bold uppercase tracking-widest text-xs mb-4">Toxic Material Free</h5>
+                        <p class="text-slate-500 text-[11px] leading-relaxed">Medical-grade polymers used in all 3D-printed enclosures.</p>
+                    </div>
+                    <div class="p-8 bg-slate-50 border border-slate-100 rounded-lg text-center" data-aos="fade-up" style="animation-delay: 0.1s">
+                        <i class="fas fa-signal-stream text-3xl text-mumaa-blue mb-8"></i>
+                        <h5 class="font-bold uppercase tracking-widest text-xs mb-4">OTA Updates</h5>
+                        <p class="text-slate-500 text-[11px] leading-relaxed">Seamless Over-The-Air syllabus and security patches.</p>
+                    </div>
+                    <div class="p-8 bg-slate-50 border border-slate-100 rounded-lg text-center" data-aos="fade-up" style="animation-delay: 0.2s">
+                        <i class="fas fa-battery-full text-3xl text-mumaa-blue mb-8"></i>
+                        <h5 class="font-bold uppercase tracking-widest text-xs mb-4">8h Performance</h5>
+                        <p class="text-slate-500 text-[11px] leading-relaxed">Optimized power management for all-day learning sessions.</p>
+                    </div>
+                    <div class="p-8 bg-slate-50 border border-slate-100 rounded-lg text-center" data-aos="fade-up" style="animation-delay: 0.3s">
+                        <i class="fas fa-cloud-slash text-3xl text-mumaa-blue mb-8"></i>
+                        <h5 class="font-bold uppercase tracking-widest text-xs mb-4">Edge Decryption</h5>
+                        <p class="text-slate-500 text-[11px] leading-relaxed">AES-256 root-level encryption for all local audio buffers.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Details Modal -->
+    <div id="productModal" class="fixed inset-0 z-[100] hidden items-center justify-center bg-black/90 backdrop-blur-md p-6">
+        <div class="bg-white p-12 lg:p-24 max-w-5xl w-full rounded-sm relative shadow-3xl overflow-y-auto max-h-[90vh]">
+            <button onclick="closeDetails()" class="absolute top-10 right-10 text-slate-300 hover:text-slate-900 transition-all text-3xl font-light"><i class="fas fa-times"></i></button>
+            <div id="modalContent">
+                <!-- Content injected via JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-slate-950 pt-40 pb-20 text-white relative">
+        <div class="container mx-auto px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-32 mb-32">
+                <div class="lg:col-span-5">
+                    <div class="flex items-center gap-6 mb-12">
+                        <img src="logo-light.png" alt="MUMAA Logo" class="h-10 w-auto brightness-0 invert" onerror="this.src='https://via.placeholder.com/48/7ba2b8/ffffff?text=M'">
+                        <div class="h-8 w-[1px] bg-white/10"></div>
+                        <span class="text-sm font-bold tracking-[0.5em] uppercase opacity-40">Systems HQ</span>
+                    </div>
+                    <p class="text-slate-500 text-xl font-light leading-relaxed mb-16 max-w-md">
+                        MUMAA Systems: Architecting child-safe hardware and ethical AI for a safer tomorrow.
+                    </p>
+                </div>
+                <div class="lg:col-span-3">
+                    <h5 class="text-[10px] font-bold mb-12 text-mumaa-blue uppercase tracking-[0.5em]">Global Navigation</h5>
+                    <ul class="space-y-8 text-slate-500 text-[10px] font-bold uppercase tracking-[0.3em]">
+                        <li><a href="index.html" class="hover:text-white transition-all">Home</a></li>
+                        <li><a href="about.html" class="hover:text-white transition-all">About MUMAA</a></li>
+                        <li><a href="solutions.html" class="hover:text-white transition-all">Technical Solutions</a></li>
+                        <li><a href="products.html" class="text-white">Products</a></li>
+                        <li><a href="contact.html" class="hover:text-white transition-all">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="lg:col-span-4">
+                    <h5 class="text-[10px] font-bold mb-12 text-mumaa-blue uppercase tracking-[0.5em]">Compliance</h5>
+                    <ul class="space-y-8 text-slate-500 text-[10px] font-bold uppercase tracking-[0.3em]">
+                        <li><a href="#" class="hover:text-white transition-all">Hardware Certification</a></li>
+                        <li><a href="#" class="hover:text-white transition-all">Child Data Privacy</a></li>
+                        <li><a href="#" class="hover:text-white transition-all">Safety Standards</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="pt-20 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-12 text-slate-600">
+                <p class="text-[9px] font-bold uppercase tracking-[0.6em]">© 2026 MUMAA AI Systems. All Hardware Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // AOS Initializer
+        AOS.init({ duration: 1000, once: true });
+
+        // RESILIENT LOADER
+        const hideLoader = () => {
+            const loader = document.getElementById('logoLoader');
+            if(loader) {
+                loader.style.opacity = '0';
+                setTimeout(() => loader.remove(), 600);
+            }
+        };
+        window.addEventListener('load', () => setTimeout(hideLoader, 1000));
+        setTimeout(hideLoader, 1500); // Safety force-close
+
+        // Modal Data & Logic
+        const modal = document.getElementById('productModal');
+        const modalContent = document.getElementById('modalContent');
+
+        const productData = {
+            'hardware': {
+                title: 'MUMAA Smart Companion v1.0',
+                desc: 'A dedicated hardware node for conversational early learning. Built on an enterprise-grade Edge-AI framework to prioritize privacy and offline performance.',
+                specs: [
+                    'Raspberry Pi 4 Core Processor (4GB RAM)',
+                    'High-Fidelity USB Microphone with Noise Cancellation',
+                    '3W External Speaker (Optimized for maternal voice frequencies)',
+                    'Custom 3D-Printed Child-Safe Casing',
+                    'Soft LED Mode Indicator System'
+                ]
+            },
+            'software': {
+                title: 'Parental Governance Interface',
+                desc: 'The centralized dashboard that gives parents root-level control over the AI’s learning boundaries and operational schedule.',
+                specs: [
+                    'Real-time Inquiry History Logs',
+                    'Syllabus Selection & Lock Protocols',
+                    'Screen-Time Ratio Management',
+                    'Emotional Tone Analytics Dashboard',
+                    'Instant Safety Intervention Alerts'
+                ]
+            }
+        };
+
+        function showDetails(key) {
+            const data = productData[key];
+            modalContent.innerHTML = `
+                <span class="text-mumaa-blue font-bold tracking-widest text-[10px] uppercase mb-8 block">Full Specifications</span>
+                <h3 class="text-5xl font-black text-slate-900 mb-10 font-lexend leading-tight">${data.title}</h3>
+                <p class="text-xl text-slate-500 leading-relaxed mb-12 font-light">${data.desc}</p>
+                <div class="grid md:grid-cols-2 gap-12 mb-16">
+                    <ul class="space-y-6">
+                        ${data.specs.map(s => `<li class="flex items-start gap-4 font-bold text-xs uppercase tracking-widest text-slate-700"><i class="fas fa-square-check text-mumaa-blue mt-1"></i> ${s}</li>`).join('')}
+                    </ul>
+                </div>
+                <div class="flex gap-10">
+                    <button class="px-12 py-5 bg-slate-900 text-white font-black text-xs tracking-widest uppercase hover:bg-mumaa-blue transition-all">Download Documentation</button>
+                </div>
+            `;
+            modal.classList.replace('hidden', 'flex');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeDetails() {
+            modal.classList.replace('flex', 'hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Mobile Menu
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const mobileMenuClose = document.getElementById('mobileMenuClose');
+
+        mobileMenuToggle.addEventListener('click', () => mobileMenu.classList.remove('translate-x-full'));
+        mobileMenuClose.addEventListener('click', () => mobileMenu.classList.add('translate-x-full'));
+    </script>
+</body>
+</html>

@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solutions | MUMAA Systems - Institutional EdTech Infrastructure</title>
+    <meta name="description" content="Explore MUMAA Systems' institutional solutions, including school deployments, syllabus-bound AI frameworks, and regional language integration.">
+    <meta name="keywords" content="MUMAA Solutions, EdTech Deployment, RAG for schools, regional language AI, secure learning infrastructure">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="logo.png">
+    <meta name="theme-color" content="#1e293b">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- GSAP for Professional Motion -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'inter': ['Inter', 'sans-serif'],
+                        'lexend': ['Lexend', 'sans-serif']
+                    },
+                    colors: {
+                        mumaa: {
+                            blue: '#7ba2b8',
+                            teal: '#9db5a1',
+                            sand: '#e3d1be',
+                            slate: '#1e293b'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        .gradient-text {
+            background: linear-gradient(135deg, #7ba2b8, #9db5a1, #1e293b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .glass {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .nav-link {
+            position: relative;
+            transition: color 0.3s ease;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: #7ba2b8;
+            transition: width 0.3s ease;
+        }
+        .nav-link.active::after {
+            width: 100%;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        #logoLoader {
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+        }
+        
+        .hero-pattern {
+            background-image: radial-gradient(circle at 1px 1px, rgba(123, 162, 184, 0.1) 1px, transparent 0);
+            background-size: 50px 50px;
+        }
+    </style>
+</head>
+<body class="font-inter text-slate-900 overflow-x-hidden relative bg-white">
+
+    <!-- Logo Loader -->
+    <div class="fixed inset-0 bg-slate-900 flex items-center justify-center z-[100]" id="logoLoader">
+        <div class="text-center">
+            <div class="relative mb-6">
+                <img src="logo.png" alt="MUMAA" class="w-16 h-16 mx-auto animate-pulse" onerror="this.src='https://via.placeholder.com/80/7ba2b8/ffffff?text=M'">
+                <div class="absolute inset-0 rounded-full border-2 border-blue-400/20 border-t-mumaa-blue animate-spin"></div>
+            </div>
+            <p class="text-slate-400 text-[10px] font-bold tracking-[0.4em] uppercase">MUMAA Deployment Protocol</p>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="fixed top-0 left-0 right-0 z-[60] bg-white/80 backdrop-blur-xl border-b border-slate-100">
+        <div class="container mx-auto px-8 py-5">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-6">
+                    <a href="index.html" class="flex items-center space-x-4">
+                        <img src="logo.png" alt="MUMAA Logo" class="h-10 w-auto" onerror="this.src='https://via.placeholder.com/40/7ba2b8/ffffff?text=M'">
+                        <div class="h-6 w-[1px] bg-slate-200"></div>
+                        <div class="flex flex-col">
+                            <span class="text-xl font-bold tracking-tighter text-slate-900 font-lexend uppercase">MUMAA</span>
+                            <span class="text-[8px] font-bold tracking-[0.4em] text-slate-400 uppercase">Intelligent Systems</span>
+                        </div>
+                    </a>
+                </div>
+                
+                <nav class="hidden lg:flex items-center space-x-10">
+                    <a href="index.html" class="nav-link text-slate-400 hover:text-slate-900 text-[10px] font-bold uppercase tracking-widest">Home</a>
+                    <a href="about.html" class="nav-link text-slate-400 hover:text-slate-900 text-[10px] font-bold uppercase tracking-widest">About</a>
+                    <a href="solutions.html" class="nav-link active text-slate-900 text-[10px] font-bold uppercase tracking-widest">Solutions</a>
+                    <a href="products.html" class="nav-link text-slate-400 hover:text-slate-900 text-[10px] font-bold uppercase tracking-widest">Products</a>
+                    <a href="contact.html" class="nav-link text-slate-400 hover:text-slate-900 text-[10px] font-bold uppercase tracking-widest">Contact</a>
+                    <button id="openModalBtnNav" class="bg-slate-900 text-white px-8 py-3 rounded-sm font-bold text-[10px] tracking-[0.2em] uppercase hover:bg-mumaa-blue transition-all">Support Mission</button>
+                </nav>
+
+                <button class="lg:hidden text-slate-900 text-2xl" id="mobileMenuToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="fixed inset-y-0 right-0 w-full bg-white z-[70] transform translate-x-full transition-transform duration-500 lg:hidden flex flex-col p-10">
+        <button class="self-end text-slate-900 text-2xl mb-12" id="mobileMenuClose">
+            <i class="fas fa-times"></i>
+        </button>
+        <nav class="flex flex-col space-y-10 text-center">
+            <a href="index.html" class="text-slate-400 font-black uppercase tracking-widest text-lg">Home</a>
+            <a href="about.html" class="text-slate-400 font-black uppercase tracking-widest text-lg">About Us</a>
+            <a href="solutions.html" class="text-slate-900 font-black uppercase tracking-widest text-lg">Our Solutions</a>
+            <a href="products.html" class="text-slate-400 font-black uppercase tracking-widest text-lg">Our Products</a>
+            <a href="contact.html" class="text-slate-400 font-black uppercase tracking-widest text-lg">Contact</a>
+        </nav>
+    </div>
+
+    <main class="relative z-10">
+        <!-- Hero Section -->
+        <section class="min-h-[70vh] flex items-center pt-32 pb-20 hero-pattern">
+            <div class="container mx-auto px-8 text-center">
+                <div data-aos="fade-up">
+                    <div class="inline-flex items-center px-4 py-1.5 rounded-sm bg-mumaa-blue/10 border border-mumaa-blue/20 mb-10">
+                        <span class="text-mumaa-blue text-[10px] font-bold tracking-[0.4em] uppercase">Enterprise Strategy</span>
+                    </div>
+                    <h1 class="text-6xl lg:text-8xl font-black text-slate-900 leading-none mb-10 font-lexend">
+                        Global Learning <br><span class="gradient-text">Infrastructure</span>.
+                    </h1>
+                    <p class="text-2xl text-slate-500 leading-relaxed max-w-3xl mx-auto font-light">
+                        MUMAA Systems provides turnkey conversational AI solutions for institutional deployment, rural educational outreach, and curriculum automation.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Main Solutions Grid -->
+        <section class="py-32 bg-slate-50 border-y border-slate-100" id="solutions-grid">
+            <div class="container mx-auto px-8">
+                <div class="text-center mb-24" data-aos="fade-up">
+                    <h2 class="text-5xl font-black text-slate-900 font-lexend">Scalable Frameworks</h2>
+                </div>
+
+                <div class="grid lg:grid-cols-3 gap-12">
+                    <!-- Institutional Deployment -->
+                    <div class="p-10 bg-white border border-slate-200 rounded-lg hover:shadow-3xl transition-all" data-aos="fade-up">
+                        <div class="w-14 h-14 bg-slate-900 text-white flex items-center justify-center mb-8 text-xl rounded-sm">
+                            <i class="fas fa-building-columns"></i>
+                        </div>
+                        <h4 class="text-2xl font-bold mb-6 font-lexend">School Network Licensing</h4>
+                        <p class="text-slate-500 text-sm leading-relaxed mb-8 font-light">Customized fleet management for school districts. Includes teacher dashboards, localized syllabus nodes, and multi-classroom syncing protocols.</p>
+                        <ul class="space-y-3 mb-10 text-xs font-bold uppercase tracking-widest text-slate-400">
+                            <li><i class="fas fa-check text-mumaa-teal mr-2"></i> Fleet Health Monitoring</li>
+                            <li><i class="fas fa-check text-mumaa-teal mr-2"></i> Teacher Review Portal</li>
+                        </ul>
+                        <button onclick="showDetails('school')" class="text-mumaa-blue font-black text-[10px] uppercase tracking-[0.2em]">Learn More →</button>
+                    </div>
+
+                    <!-- NGO & Rural Outreach -->
+                    <div class="p-10 bg-white border border-slate-200 rounded-lg hover:shadow-3xl transition-all" data-aos="fade-up" style="animation-delay: 0.1s">
+                        <div class="w-14 h-14 bg-mumaa-blue text-white flex items-center justify-center mb-8 text-xl rounded-sm">
+                            <i class="fas fa-hand-holding-heart"></i>
+                        </div>
+                        <h4 class="text-2xl font-bold mb-6 font-lexend">Social Impact Modules</h4>
+                        <p class="text-slate-500 text-sm leading-relaxed mb-8 font-light">Bridge the digital divide with multi-dialect support and offline-capable RAG engines. Designed for communities with limited internet access.</p>
+                        <ul class="space-y-3 mb-10 text-xs font-bold uppercase tracking-widest text-slate-400">
+                            <li><i class="fas fa-check text-mumaa-teal mr-2"></i> 12+ Dialect Processing</li>
+                            <li><i class="fas fa-check text-mumaa-teal mr-2"></i> Low-Bandwidth Sync</li>
+                        </ul>
+                        <button onclick="showDetails('ngo')" class="text-mumaa-blue font-black text-[10px] uppercase tracking-[0.2em]">Learn More →</button>
+                    </div>
+
+                    <!-- Technical RAG Licensing -->
+                    <div class="p-10 bg-white border border-slate-200 rounded-lg hover:shadow-3xl transition-all" data-aos="fade-up" style="animation-delay: 0.2s">
+                        <div class="w-14 h-14 bg-mumaa-teal text-white flex items-center justify-center mb-8 text-xl rounded-sm">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h4 class="text-2xl font-bold mb-6 font-lexend">Engine API Licensing</h4>
+                        <p class="text-slate-500 text-sm leading-relaxed mb-8 font-light">Integrate our proprietary "Syllabus-Bound RAG" logic into your own hardware or applications through our enterprise-grade API suite.</p>
+                        <ul class="space-y-3 mb-10 text-xs font-bold uppercase tracking-widest text-slate-400">
+                            <li><i class="fas fa-check text-mumaa-teal mr-2"></i> Zero-Hallucination API</li>
+                            <li><i class="fas fa-check text-mumaa-teal mr-2"></i> HIPAA & COPPA Secure</li>
+                        </ul>
+                        <button onclick="showDetails('api')" class="text-mumaa-blue font-black text-[10px] uppercase tracking-[0.2em]">Learn More →</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Process Section -->
+        <section class="py-32 bg-white" data-aos="fade-up">
+            <div class="container mx-auto px-8">
+                <div class="text-center mb-24">
+                    <span class="text-mumaa-blue font-bold uppercase tracking-[0.5em] text-[10px] mb-6 block">02 / Deployment Roadmap</span>
+                    <h2 class="text-5xl font-black text-slate-900 font-lexend">The Implementation Lifecycle</h2>
+                </div>
+
+                <div class="grid md:grid-cols-4 gap-12">
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-slate-50 border border-slate-100 rounded-full flex items-center justify-center mx-auto mb-8 font-black text-slate-900 shadow-sm">01</div>
+                        <h5 class="font-bold uppercase tracking-widest text-xs mb-4">Discovery</h5>
+                        <p class="text-slate-400 text-[11px] leading-relaxed">Mapping your curriculum and safety requirements.</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-slate-50 border border-slate-100 rounded-full flex items-center justify-center mx-auto mb-8 font-black text-slate-900 shadow-sm">02</div>
+                        <h5 class="font-bold uppercase tracking-widest text-xs mb-4">Syllabus Sync</h5>
+                        <p class="text-slate-400 text-[11px] leading-relaxed">Importing verified data into our RAG Architecture.</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-slate-50 border border-slate-100 rounded-full flex items-center justify-center mx-auto mb-8 font-black text-slate-900 shadow-sm">03</div>
+                        <h5 class="font-bold uppercase tracking-widest text-xs mb-4">Deployment</h5>
+                        <p class="text-slate-400 text-[11px] leading-relaxed">Global or regional hardware/software activation.</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-slate-900 text-white rounded-full flex items-center justify-center mx-auto mb-8 font-black shadow-lg">04</div>
+                        <h5 class="font-bold uppercase tracking-widest text-xs mb-4 text-slate-900">Impact Analysis</h5>
+                        <p class="text-slate-400 text-[11px] leading-relaxed">Continuous review of engagement and recall metrics.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Final CTA Section -->
+        <section class="py-32 bg-slate-900 text-white relative overflow-hidden" id="cta">
+            <div class="absolute top-0 right-0 w-96 h-96 bg-mumaa-blue/10 blur-[120px]"></div>
+            <div class="container mx-auto px-8 relative z-10 text-center">
+                <div class="max-w-4xl mx-auto">
+                    <h2 class="text-5xl lg:text-6xl font-black mb-10 font-lexend leading-tight">Ready to Pioneer Your Institutional Revolution?</h2>
+                    <p class="text-2xl text-slate-400 font-light mb-12 leading-relaxed">
+                        Join the global leaders who are building the future of safe, ethical education with MUMAA Systems.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-8 justify-center">
+                        <a href="contact.html" class="px-12 py-5 bg-white text-slate-900 font-black text-xs tracking-widest uppercase hover:bg-mumaa-blue hover:text-white transition-all">Start Your Project</a>
+                        <a href="about.html" class="px-12 py-5 border border-white/20 text-white font-black text-xs tracking-widest uppercase hover:bg-white/5 transition-all">View Our Story</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Details Modal -->
+    <div id="detailsModal" class="fixed inset-0 z-[100] hidden items-center justify-center bg-black/80 backdrop-blur-md p-6">
+        <div class="bg-white p-12 lg:p-20 max-w-4xl w-full rounded-sm relative shadow-3xl overflow-y-auto max-h-[90vh]">
+            <button onclick="closeDetails()" class="absolute top-10 right-10 text-slate-300 hover:text-slate-900 transition-all text-2xl"><i class="fas fa-times"></i></button>
+            <div id="modalContent">
+                <!-- Content injected via JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-white pt-40 pb-20 text-slate-900 border-t border-slate-100">
+        <div class="container mx-auto px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-24 mb-32">
+                <div class="lg:col-span-5">
+                    <div class="flex items-center gap-6 mb-12">
+                        <img src="logo.png" alt="MUMAA Logo" class="h-10 w-auto" onerror="this.src='https://via.placeholder.com/48/7ba2b8/ffffff?text=M'">
+                        <div class="h-8 w-[1px] bg-slate-200"></div>
+                        <span class="text-sm font-bold tracking-[0.5em] uppercase text-slate-400">Systems</span>
+                    </div>
+                    <p class="text-slate-500 text-xl font-light leading-relaxed mb-16 max-w-md">
+                        MUMAA Artificial Intelligence Systems: Redefining institutional early learning through ethical conversational dialogue.
+                    </p>
+                </div>
+                <div class="lg:col-span-3">
+                    <h5 class="text-[10px] font-bold mb-12 text-mumaa-blue uppercase tracking-[0.5em]">Global Navigation</h5>
+                    <ul class="space-y-8 text-slate-500 text-[10px] font-bold uppercase tracking-[0.3em]">
+                        <li><a href="index.html" class="hover:text-mumaa-blue transition-all">Home</a></li>
+                        <li><a href="about.html" class="hover:text-mumaa-blue transition-all">About MUMAA</a></li>
+                        <li><a href="solutions.html" class="text-mumaa-blue">Technical Solutions</a></li>
+                    </ul>
+                </div>
+                <div class="lg:col-span-4">
+                    <h5 class="text-[10px] font-bold mb-12 text-mumaa-blue uppercase tracking-[0.5em]">Hardware & Links</h5>
+                    <ul class="space-y-8 text-slate-500 text-[10px] font-bold uppercase tracking-[0.3em]">
+                        <li><a href="products.html" class="hover:text-mumaa-blue transition-all">Hardware Specs</a></li>
+                        <li><a href="contact.html" class="hover:text-mumaa-blue transition-all">Contact Board</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="pt-20 border-t border-slate-100 flex flex-col md:flex-row justify-between items-center gap-12">
+                <p class="text-slate-300 text-[9px] font-bold uppercase tracking-[0.6em]">© 2026 MUMAA AI Systems. Global HQ.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // AOS Initializer
+        AOS.init({ duration: 1000, once: true });
+
+        // RESILIENT LOADER LOGIC (FIXED)
+        const hideLoader = () => {
+            const loader = document.getElementById('logoLoader');
+            if(loader) {
+                loader.style.opacity = '0';
+                loader.style.pointerEvents = 'none';
+                setTimeout(() => {
+                    if(loader.parentNode) loader.remove();
+                }, 600);
+            }
+        };
+
+        // Attempt on DOM Content Loaded (Faster)
+        document.addEventListener('DOMContentLoaded', () => {
+            setTimeout(hideLoader, 500);
+        });
+
+        // Backup on window load
+        window.addEventListener('load', hideLoader);
+
+        // Safety force-close (3 seconds)
+        const safetyLoaderTimeout = setTimeout(hideLoader, 3000);
+
+        // Details Modal Logic
+        const modal = document.getElementById('detailsModal');
+        const modalContent = document.getElementById('modalContent');
+
+        const solutionData = {
+            'school': {
+                title: 'School Network Infrastructure',
+                desc: 'MUMAA Systems offers a comprehensive hardware-as-a-service model for primary school networks. This solution includes centralized fleet management, allowing administrators to push curriculum updates to every node simultaneously.',
+                features: ['Teacher Oversight Dashboard', 'Institutional Bulk Licensing', 'Class-wise Performance Analytics']
+            },
+            'ngo': {
+                title: 'NGO & Rural Impact Strategy',
+                desc: 'Our social impact solution focuses on democratizing AI. By utilizing multi-dialect processing and low-cost hardware casing, we provide high-level educational support to communities where English is not the primary language.',
+                features: ['Vernacular Voice Support', 'Offline Syllabus Database', 'Community Progress Logs']
+            },
+            'api': {
+                title: 'Syllabus-Bound RAG API',
+                desc: 'For enterprise developers, we provide an API layer for our proprietary RAG engine. This allows other educational tools to leverage our safe interaction protocols and verified curriculum mapping.',
+                features: ['Low Latency Response', 'Enterprise-Grade Encryption', 'Custom Syllabus Ingestion']
+            }
+        };
+
+        function showDetails(key) {
+            const data = solutionData[key];
+            modalContent.innerHTML = `
+                <span class="text-mumaa-blue font-bold tracking-widest text-[10px] uppercase mb-6 block">Deep Dive</span>
+                <h3 class="text-4xl font-black text-slate-900 mb-8 font-lexend">${data.title}</h3>
+                <p class="text-lg text-slate-500 leading-relaxed mb-12 font-light">${data.desc}</p>
+                <h5 class="text-xs font-bold uppercase tracking-[0.3em] text-slate-400 mb-6">Key Specifications:</h5>
+                <ul class="space-y-4 mb-12">
+                    ${data.features.map(f => `<li class="flex items-center gap-4 font-bold text-xs uppercase tracking-widest text-slate-700"><i class="fas fa-circle-check text-mumaa-teal"></i> ${f}</li>`).join('')}
+                </ul>
+                <a href="contact.html" class="inline-block px-12 py-4 bg-slate-900 text-white font-black text-xs tracking-widest uppercase hover:bg-mumaa-blue transition-all shadow-xl">Contact Solution Architect</a>
+            `;
+            modal.classList.replace('hidden', 'flex');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeDetails() {
+            modal.classList.replace('flex', 'hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Mobile Menu
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const mobileMenuClose = document.getElementById('mobileMenuClose');
+
+        if(mobileMenuToggle) mobileMenuToggle.addEventListener('click', () => mobileMenu.classList.remove('translate-x-full'));
+        if(mobileMenuClose) mobileMenuClose.addEventListener('click', () => mobileMenu.classList.add('translate-x-full'));
+    </script>
+</body>
+</html>

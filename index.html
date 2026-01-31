@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MUMAA Systems | Global Leader in Conversational AI & Educational Hardware</title>
+    <meta name="description" content="MUMAA Systems is the world's leading provider of parent-governed, voice-first AI learning companions for early childhood development.">
+    <meta name="keywords" content="MUMAA, EdTech, Conversational AI, Child Safety, AI Learning, Sanjana Founder, Syllabus-Bound AI">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="logo.png">
+    <meta name="theme-color" content="#1e293b">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'inter': ['Inter', 'sans-serif'],
+                        'lexend': ['Lexend', 'sans-serif']
+                    },
+                    colors: {
+                        mumaa: {
+                            blue: '#7ba2b8',
+                            teal: '#9db5a1',
+                            sand: '#e3d1be',
+                            slate: '#1e293b'
+                        }
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'spin-slow': 'spin 12s linear infinite',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        .gradient-text {
+            background: linear-gradient(135deg, #7ba2b8, #9db5a1, #475569);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .glass {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .product-card-gradient {
+            background: linear-gradient(to bottom right, #ffffff 0%, #f8fafc 100%);
+        }
+
+        #logoLoader {
+            transition: opacity 0.5s ease;
+        }
+
+        .nav-link {
+            position: relative;
+            transition: color 0.3s ease;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: #7ba2b8;
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .circuit-line {
+            stroke-dasharray: 50;
+            animation: flow 10s linear infinite;
+        }
+        @keyframes flow {
+            to { stroke-dashoffset: 200; }
+        }
+    </style>
+</head>
+<body class="font-inter text-slate-900 overflow-x-hidden relative bg-white">
+
+    <!-- Logo Loader -->
+    <div class="fixed inset-0 bg-slate-900 flex items-center justify-center z-[100]" id="logoLoader">
+        <div class="text-center">
+            <div class="relative mb-6">
+                <img src="logo.png" alt="MUMAA" class="w-16 h-16 mx-auto" onerror="this.src='https://via.placeholder.com/80/7ba2b8/ffffff?text=M'">
+                <div class="absolute inset-0 rounded-full border-2 border-blue-400/20 border-t-mumaa-blue animate-spin"></div>
+            </div>
+            <p class="text-slate-400 text-[10px] font-bold tracking-[0.4em] uppercase">MUMAA Systems Global</p>
+        </div>
+    </div>
+
+    <!-- Background Elements -->
+    <div class="fixed inset-0 z-0 pointer-events-none overflow-hidden">
+        <div class="absolute top-0 right-0 w-[50%] h-[50%] bg-[#7ba2b8]/5 blur-[120px] rounded-full"></div>
+        <div class="absolute bottom-0 left-0 w-[50%] h-[50%] bg-[#9db5a1]/5 blur-[120px] rounded-full"></div>
+        <svg class="absolute inset-0 w-full h-full opacity-[0.03]">
+            <pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse">
+                <path d="M 60 0 L 0 0 0 60" fill="none" stroke="black" stroke-width="1"/>
+            </pattern>
+            <rect width="100%" height="100%" fill="url(#grid)" />
+        </svg>
+    </div>
+
+    <!-- Header -->
+    <header class="fixed top-0 left-0 right-0 z-[60] bg-white/80 backdrop-blur-xl border-b border-slate-100">
+        <div class="container mx-auto px-8 py-5">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-6">
+                    <a href="index.html" class="flex items-center space-x-4">
+                        <img src="logo.png" alt="MUMAA Logo" class="h-10 w-auto" onerror="this.src='https://via.placeholder.com/40/7ba2b8/ffffff?text=M'">
+                        <div class="h-6 w-[1px] bg-slate-200"></div>
+                        <div class="flex flex-col">
+                            <span class="text-xl font-bold tracking-tighter text-slate-900 font-lexend uppercase">MUMAA</span>
+                            <span class="text-[8px] font-bold tracking-[0.4em] text-slate-400 uppercase">Intelligent Systems</span>
+                        </div>
+                    </a>
+                </div>
+                
+                <nav class="hidden lg:flex items-center space-x-10">
+                    <a href="index.html" class="nav-link text-slate-900 text-[10px] font-bold uppercase tracking-widest">Home</a>
+                    <a href="about.html" class="nav-link text-slate-400 hover:text-slate-900 text-[10px] font-bold uppercase tracking-widest">About</a>
+                    <a href="solutions.html" class="nav-link text-slate-400 hover:text-slate-900 text-[10px] font-bold uppercase tracking-widest">Solutions</a>
+                    <a href="products.html" class="nav-link text-slate-400 hover:text-slate-900 text-[10px] font-bold uppercase tracking-widest">Products</a>
+                    <a href="contact.html" class="nav-link text-slate-400 hover:text-slate-900 text-[10px] font-bold uppercase tracking-widest">Contact</a>
+                    <button id="openModalBtnNav" class="bg-slate-900 text-white px-8 py-3 rounded-sm font-bold text-[10px] tracking-[0.2em] uppercase hover:bg-mumaa-blue transition-all">Support Our Mission</button>
+                </nav>
+
+                <button class="lg:hidden text-slate-900 text-2xl" id="mobileMenuToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="fixed inset-y-0 right-0 w-full bg-white z-[70] transform translate-x-full transition-transform duration-500 lg:hidden flex flex-col p-10">
+        <button class="self-end text-slate-900 text-2xl mb-12" id="mobileMenuClose">
+            <i class="fas fa-times"></i>
+        </button>
+        <nav class="flex flex-col space-y-10 text-center">
+            <a href="index.html" class="text-slate-900 font-black uppercase tracking-widest text-lg">Home</a>
+            <a href="about.html" class="text-slate-400 font-black uppercase tracking-widest text-lg">About Us</a>
+            <a href="solutions.html" class="text-slate-400 font-black uppercase tracking-widest text-lg">Our Solutions</a>
+            <a href="products.html" class="text-slate-400 font-black uppercase tracking-widest text-lg">Our Products</a>
+            <a href="contact.html" class="text-slate-400 font-black uppercase tracking-widest text-lg">Contact</a>
+        </nav>
+    </div>
+
+    <main class="relative z-10">
+        <!-- Product-Oriented Hero -->
+        <section class="min-h-screen flex items-center pt-24 pb-20">
+            <div class="container mx-auto px-8">
+                <div class="grid lg:grid-cols-2 gap-24 items-center">
+                    <div data-aos="fade-right">
+                        <div class="inline-flex items-center px-4 py-1.5 rounded-sm bg-[#7ba2b8]/10 border border-[#7ba2b8]/20 mb-8">
+                            <span class="text-[#7ba2b8] text-[9px] font-black tracking-[0.4em] uppercase">2026 Hardware Series v1.0</span>
+                        </div>
+                        <h1 class="text-6xl lg:text-8xl font-black text-slate-900 leading-none mb-10 font-lexend">
+                            The New <br><span class="gradient-text">Companion</span> Age.
+                        </h1>
+                        <p class="text-2xl text-slate-500 leading-relaxed max-w-xl mb-12 font-light">
+                            Developing a world-class, voice-interactive ecosystem that prioritizes the neural safety of the next generation.
+                        </p>
+                        <div class="flex flex-wrap gap-8">
+                            <a href="products.html" class="px-12 py-5 bg-slate-900 text-white font-black text-xs tracking-widest uppercase hover:bg-mumaa-blue transition-all text-center">Discover the Device</a>
+                            <a href="about.html" class="px-12 py-5 border border-slate-200 text-slate-900 font-black text-xs tracking-widest uppercase hover:bg-slate-50 transition-all text-center">Founder's Vision</a>
+                        </div>
+                    </div>
+
+                    <!-- Hardware Visual Representation -->
+                    <div class="relative" data-aos="zoom-in">
+                        <div class="relative w-full aspect-square bg-slate-50 rounded-[4rem] border border-slate-100 p-16 shadow-2xl flex items-center justify-center overflow-hidden">
+                            <div class="absolute -top-20 -right-20 w-80 h-80 bg-mumaa-blue/10 rounded-full blur-3xl"></div>
+                            <!-- Mock Product SVG -->
+                            <svg viewBox="0 0 400 400" class="w-full h-auto animate-float relative z-10">
+                                <rect x="80" y="50" width="240" height="300" rx="60" fill="white" stroke="#e2e8f0" stroke-width="4"/>
+                                <circle cx="200" cy="180" r="80" fill="#f8fafc" stroke="#7ba2b8" stroke-width="1" stroke-dasharray="10 5"/>
+                                <circle cx="200" cy="180" r="60" fill="#7ba2b8" opacity="0.05"/>
+                                <path d="M160,180 Q200,220 240,180" stroke="#7ba2b8" stroke-width="6" fill="none" stroke-linecap="round"/>
+                                <g class="led-indicators">
+                                    <circle cx="170" cy="300" r="5" fill="#9db5a1" />
+                                    <circle cx="200" cy="300" r="5" fill="#7ba2b8" />
+                                    <circle cx="230" cy="300" r="5" fill="#e3d1be" />
+                                </g>
+                            </svg>
+                            <div class="absolute bottom-10 left-10 right-10 glass p-6 rounded-2xl border border-black/5">
+                                <p class="text-slate-400 text-[10px] font-bold uppercase tracking-widest mb-2">Device Status</p>
+                                <p class="text-slate-800 text-sm font-medium italic">"MUMAA is ready to teach. Ask about the Solar System."</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Product Ecosystem Section -->
+        <section class="py-32 bg-slate-50" id="products">
+            <div class="container mx-auto px-8">
+                <div class="text-center mb-24" data-aos="fade-up">
+                    <span class="text-mumaa-blue font-bold uppercase tracking-[0.5em] text-[10px] mb-6 block">01 / The Ecosystem</span>
+                    <h2 class="text-5xl font-black text-slate-900 font-lexend">MUMAA Product Portfolio</h2>
+                </div>
+
+                <div class="grid lg:grid-cols-2 gap-16">
+                    <!-- The Device -->
+                    <div class="p-12 product-card-gradient border border-slate-200 rounded-[3rem] hover:shadow-3xl transition-all group" data-aos="fade-right">
+                        <div class="flex flex-col md:flex-row gap-10">
+                            <div class="w-24 h-24 bg-slate-900 text-white rounded-3xl flex items-center justify-center text-4xl shrink-0 group-hover:bg-mumaa-blue transition-colors">
+                                <i class="fas fa-robot"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-3xl font-black mb-6 font-lexend text-slate-900">MUMAA Smart Companion</h4>
+                                <p class="text-slate-500 text-lg leading-relaxed mb-10 font-light">A dedicated Raspberry Pi-powered physical device featuring low-latency voice recognition and non-toxic, child-safe industrial design.</p>
+                                <ul class="space-y-4 mb-10">
+                                    <li class="flex items-center gap-4 text-sm font-bold uppercase tracking-widest text-slate-700">
+                                        <i class="fas fa-check text-mumaa-teal"></i> Edge AI Processing
+                                    </li>
+                                    <li class="flex items-center gap-4 text-sm font-bold uppercase tracking-widest text-slate-700">
+                                        <i class="fas fa-check text-mumaa-teal"></i> Professional Audio Suite
+                                    </li>
+                                </ul>
+                                <a href="products.html" class="inline-block px-10 py-4 bg-slate-900 text-white text-xs font-black uppercase tracking-widest">Hardware Specifications</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- The App -->
+                    <div class="p-12 product-card-gradient border border-slate-200 rounded-[3rem] hover:shadow-3xl transition-all group" data-aos="fade-left">
+                        <div class="flex flex-col md:flex-row gap-10">
+                            <div class="w-24 h-24 bg-mumaa-blue text-white rounded-3xl flex items-center justify-center text-4xl shrink-0 group-hover:bg-slate-900 transition-colors">
+                                <i class="fas fa-mobile-screen-button"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-3xl font-black mb-6 font-lexend text-slate-900">Parental Control Portal</h4>
+                                <p class="text-slate-500 text-lg leading-relaxed mb-10 font-light">The software backbone of MUMAA. A secure dashboard for setting learning boundaries, revieing curiosity logs, and managing screen ratios.</p>
+                                <ul class="space-y-4 mb-10">
+                                    <li class="flex items-center gap-4 text-sm font-bold uppercase tracking-widest text-slate-700">
+                                        <i class="fas fa-check text-mumaa-teal"></i> Real-time Curiosity Analytics
+                                    </li>
+                                    <li class="flex items-center gap-4 text-sm font-bold uppercase tracking-widest text-slate-700">
+                                        <i class="fas fa-check text-mumaa-teal"></i> Syllabus Locking Logic
+                                    </li>
+                                </ul>
+                                <a href="solutions.html" class="inline-block px-10 py-4 border border-slate-900 text-slate-900 text-xs font-black uppercase tracking-widest hover:bg-slate-900 hover:text-white transition-all">Solution Overview</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technical Superiority / RAG -->
+        <section class="py-32 bg-white" id="pedagogy">
+            <div class="container mx-auto px-8">
+                <div class="grid lg:grid-cols-2 gap-24 items-center">
+                    <div class="relative" data-aos="fade-right">
+                        <div class="absolute inset-0 bg-mumaa-sand/10 rounded-[3rem] -rotate-3 -z-10"></div>
+                        <div class="bg-white p-12 rounded-[3rem] border border-slate-100 shadow-xl">
+                            <h4 class="text-2xl font-bold mb-10 font-lexend">RAG Protocol Architecture</h4>
+                            <div class="space-y-10">
+                                <div class="p-6 border-l-4 border-mumaa-blue bg-slate-50">
+                                    <p class="font-bold text-xs uppercase tracking-widest mb-2">Query Input</p>
+                                    <p class="text-slate-600 text-sm italic">"How does a seed grow?"</p>
+                                </div>
+                                <div class="p-6 border-l-4 border-mumaa-teal bg-slate-50">
+                                    <p class="font-bold text-xs uppercase tracking-widest mb-2">Verification Loop</p>
+                                    <p class="text-slate-600 text-sm">Validating against CBSE/ICSE Primary Syllabus Database...</p>
+                                </div>
+                                <div class="p-6 border-l-4 border-slate-900 bg-slate-50">
+                                    <p class="font-bold text-xs uppercase tracking-widest mb-2">Secure Output</p>
+                                    <p class="text-slate-800 text-sm font-bold">MUMAA explains photosynthesis through a gentle rhyme.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div data-aos="fade-left">
+                        <span class="text-mumaa-blue font-bold uppercase tracking-[0.5em] text-[10px] mb-6 block">02 / Technical Trust</span>
+                        <h2 class="text-5xl font-black text-slate-900 mb-8 font-lexend leading-tight">Zero-Hallucination Intelligence.</h2>
+                        <p class="text-xl text-slate-500 font-light leading-relaxed mb-10">
+                            Unlike generic AI models that can generate unpredictable content, MUMAA Systems employs **Syllabus-Bound Retrieval-Augmented Generation**. This means our AI is technologically incapable of speaking about topics not pre-verified by your educational standards.
+                        </p>
+                        <div class="flex items-center gap-10">
+                            <div>
+                                <p class="text-4xl font-black text-slate-900 mb-1">100%</p>
+                                <p class="text-[9px] font-bold text-slate-400 uppercase tracking-widest">Syllabus Alignment</p>
+                            </div>
+                            <div class="h-10 w-[1px] bg-slate-200"></div>
+                            <div>
+                                <p class="text-4xl font-black text-slate-900 mb-1">Zero</p>
+                                <p class="text-[9px] font-bold text-slate-400 uppercase tracking-widest">Internet Browsing</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Executive Leadership -->
+        <section class="py-40 bg-slate-900 text-white" id="team">
+            <div class="container mx-auto px-8">
+                <div class="text-center mb-32" data-aos="fade-up">
+                    <span class="text-mumaa-blue font-bold uppercase tracking-[0.5em] text-[10px] mb-8 block">03 / Executive Board</span>
+                    <h2 class="text-5xl font-black font-lexend">MUMAA Leadership</h2>
+                </div>
+
+                <div class="flex flex-col gap-40">
+                    <!-- CEO Sanjana -->
+                    <div class="flex flex-col lg:flex-row items-center gap-32" data-aos="fade-up">
+                        <div class="w-full lg:w-1/2">
+                            <div class="aspect-square bg-slate-800 rounded-sm overflow-hidden border border-white/5 shadow-3xl grayscale hover:grayscale-0 transition-all duration-1000 group">
+                                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=1000" alt="Sanjana CEO" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                            </div>
+                        </div>
+                        <div class="w-full lg:w-1/2">
+                            <span class="text-mumaa-blue font-bold uppercase tracking-[0.4em] text-[10px] mb-8 block">Founder & Chief Executive Officer</span>
+                            <h3 class="text-6xl font-black mb-10 font-lexend">Sanjana</h3>
+                            <p class="text-2xl text-slate-400 font-light mb-12 italic leading-relaxed">
+                                "Our technology is built to be a silent guardian of childhood curiosity, ensuring every conversation is a step toward safe discovery."
+                            </p>
+                            <p class="text-slate-500 text-lg leading-relaxed mb-16 font-light">
+                                Sanjana’s leadership has positioned MUMAA Systems as a global reference point for ethical AI in early childhood. Her commitment to "Parent-First" technology design drives our institutional partnerships and global product strategy.
+                            </p>
+                            <div class="flex gap-12 text-3xl">
+                                <a href="#" class="text-slate-600 hover:text-mumaa-blue transition-all"><i class="fab fa-linkedin"></i></a>
+                                <a href="#" class="text-slate-600 hover:text-mumaa-blue transition-all"><i class="fas fa-award"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Supporting Board -->
+                    <div class="grid md:grid-cols-2 gap-16">
+                        <div class="p-12 glass flex gap-10 items-center group hover:bg-white/10 transition-all">
+                            <div class="w-32 h-32 shrink-0 grayscale group-hover:grayscale-0 transition-all">
+                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=500" alt="Ayush CTO" class="w-full h-full object-cover">
+                            </div>
+                            <div>
+                                <p class="text-mumaa-blue text-[10px] font-bold uppercase tracking-[0.3em] mb-4">Co-Founder & CTO</p>
+                                <h4 class="text-2xl font-bold mb-4 font-lexend">Ayush</h4>
+                                <p class="text-slate-500 text-sm font-light">Directing the hardware-software integration of decentralized conversational safety nodes.</p>
+                            </div>
+                        </div>
+                        <div class="p-12 glass flex gap-10 items-center group hover:bg-white/10 transition-all">
+                            <div class="w-32 h-32 shrink-0 grayscale group-hover:grayscale-0 transition-all">
+                                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=500" alt="Divyansh COO" class="w-full h-full object-cover">
+                            </div>
+                            <div>
+                                <p class="text-mumaa-blue text-[10px] font-bold uppercase tracking-[0.3em] mb-4">Director of Operations</p>
+                                <h4 class="text-2xl font-bold mb-4 font-lexend">Divyansh</h4>
+                                <p class="text-slate-500 text-sm font-light">Driving strategic international scaling and institutional deployment logistics.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal Popup -->
+    <div id="supportModal">
+        <div class="bg-white p-16 lg:p-24 w-full max-w-6xl mx-4 shadow-3xl relative overflow-hidden">
+            <button id="closeModalBtn" class="absolute top-10 right-10 text-slate-300 hover:text-slate-900 transition-colors text-3xl font-light">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="grid lg:grid-cols-2 gap-24">
+                <div>
+                    <span class="text-mumaa-blue font-bold uppercase tracking-[0.5em] text-[10px] mb-8 block">Strategic Inquiry</span>
+                    <h3 class="text-5xl font-black text-slate-900 mb-10 font-lexend leading-tight">Institutional <br>Deployment.</h3>
+                    <p class="text-slate-500 text-lg font-light leading-relaxed mb-12">Connect with the MUMAA Executive Board regarding regional deployments or partnership opportunities.</p>
+                </div>
+                <form class="space-y-10" id="supportForm">
+                    <div class="grid sm:grid-cols-2 gap-10">
+                        <div>
+                            <label class="block text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-4">Entity Legal Name</label>
+                            <input type="text" required class="w-full px-0 py-4 bg-transparent border-b-2 border-slate-100 focus:outline-none focus:border-mumaa-blue transition-all font-medium">
+                        </div>
+                        <div>
+                            <label class="block text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-4">Corporate Email</label>
+                            <input type="email" required class="w-full px-0 py-4 bg-transparent border-b-2 border-slate-100 focus:outline-none focus:border-mumaa-blue transition-all font-medium">
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-4">Proposal Focus</label>
+                        <select class="w-full px-0 py-4 bg-transparent border-b-2 border-slate-100 focus:outline-none focus:border-mumaa-blue transition-all font-medium cursor-pointer">
+                            <option>Governmental Education Project</option>
+                            <option>School Network Partnership</option>
+                            <option>Investment/Venture Inquiry</option>
+                            <option>General Media/Press</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="w-full py-8 bg-slate-950 text-white font-black text-[10px] tracking-[0.5em] uppercase hover:bg-mumaa-blue transition-all">Log Proposal</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Corporate Footer -->
+    <footer class="bg-slate-950 pt-40 pb-20 text-white relative">
+        <div class="container mx-auto px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-24 mb-32">
+                <div class="lg:col-span-5">
+                    <div class="flex items-center gap-6 mb-12">
+                        <img src="logo-light.png" alt="MUMAA Logo" class="h-10 w-auto brightness-0 invert" onerror="this.src='https://via.placeholder.com/48/ffffff/7ba2b8?text=M'">
+                        <div class="h-8 w-[1px] bg-white/10"></div>
+                        <span class="text-sm font-bold tracking-[0.5em] uppercase opacity-40">MUMAA Systems</span>
+                    </div>
+                    <p class="text-slate-500 text-xl font-light leading-relaxed mb-16 max-w-md">
+                        Redefining the cognitive safety landscape through syllabus-bound conversational intelligence.
+                    </p>
+                    <div class="flex gap-16 text-slate-700">
+                        <a href="#" class="hover:text-white transition-all text-2xl"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="hover:text-white transition-all text-2xl"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="hover:text-white transition-all text-2xl"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="lg:col-span-3">
+                    <h5 class="text-[10px] font-bold mb-12 text-mumaa-blue uppercase tracking-[0.5em]">Global Navigation</h5>
+                    <ul class="space-y-8 text-slate-500 text-[10px] font-bold uppercase tracking-[0.3em]">
+                        <li><a href="index.html" class="hover:text-white transition-all">Home</a></li>
+                        <li><a href="about.html" class="hover:text-white transition-all">About MUMAA</a></li>
+                        <li><a href="solutions.html" class="hover:text-white transition-all">Technical Solutions</a></li>
+                        <li><a href="products.html" class="hover:text-white transition-all">Hardware Systems</a></li>
+                        <li><a href="contact.html" class="hover:text-white transition-all">Contact Board</a></li>
+                    </ul>
+                </div>
+                <div class="lg:col-span-4">
+                    <h5 class="text-[10px] font-bold mb-12 text-mumaa-blue uppercase tracking-[0.5em]">Compliance & Safety</h5>
+                    <ul class="space-y-8 text-slate-500 text-[10px] font-bold uppercase tracking-[0.3em]">
+                        <li><a href="#" class="hover:text-white transition-all">Privacy Standards</a></li>
+                        <li><a href="#" class="hover:text-white transition-all">Child Safety Ethics</a></li>
+                        <li><a href="#" class="hover:text-white transition-all">Safety Whitepapers</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="pt-20 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-12">
+                <p class="text-slate-800 text-[9px] font-bold uppercase tracking-[0.6em]">© 2026 MUMAA AI Systems. Global HQ.</p>
+                <p class="text-slate-600 text-xs italic opacity-40">"The science of early intelligence, protected."</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <script>
+        // Enhanced Loader Logic
+        const hideLoader = () => {
+            const loader = document.getElementById('logoLoader');
+            if (loader) {
+                loader.style.opacity = '0';
+                setTimeout(() => loader.remove(), 600);
+            }
+        };
+
+        window.addEventListener('load', () => {
+            setTimeout(hideLoader, 800);
+        });
+
+        // Safety timeout if window load is slow
+        setTimeout(hideLoader, 3000);
+
+        // Mobile Menu Logic
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const mobileMenuClose = document.getElementById('mobileMenuClose');
+
+        mobileMenuToggle.addEventListener('click', () => {
+            mobileMenu.classList.remove('translate-x-full');
+        });
+        mobileMenuClose.addEventListener('click', () => {
+            mobileMenu.classList.add('translate-x-full');
+        });
+
+        // Modal Logic
+        const modal = document.getElementById('supportModal');
+        const openBtns = [document.getElementById('openModalBtnNav')];
+        const closeBtn = document.getElementById('closeModalBtn');
+        const supportForm = document.getElementById('supportForm');
+
+        function toggleModal(show) {
+            if (show) {
+                modal.style.display = 'flex';
+                setTimeout(() => modal.classList.add('active'), 10);
+                document.body.style.overflow = 'hidden';
+            } else {
+                modal.classList.remove('active');
+                setTimeout(() => {
+                    modal.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                }, 400);
+            }
+        }
+
+        openBtns.forEach(btn => {
+            if(btn) btn.addEventListener('click', () => toggleModal(true));
+        });
+        if(closeBtn) closeBtn.addEventListener('click', () => toggleModal(false));
+        modal.addEventListener('click', (e) => { if (e.target === modal) toggleModal(false); });
+
+        supportForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const btn = supportForm.querySelector('button');
+            btn.innerText = "BRIEF SUBMITTED SUCCESSFULLY";
+            btn.style.backgroundColor = "#10b981";
+            setTimeout(() => toggleModal(false), 2000);
+        });
+
+        // Initialize AOS
+        AOS.init({ duration: 1000, once: true });
+    </script>
+</body>
+</html>
